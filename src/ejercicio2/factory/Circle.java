@@ -20,9 +20,9 @@ public class Circle {
         this.ratioDistance = ratioDistance;
     }
 
-    public int getCentralPoint() {
+    public int getCentralPoint() throws FactoryException{
         if (centralPoint < 0) {
-            
+            throw new FactoryException("El punto central no puede ser negativo");
         }
         return centralPoint;
     }
@@ -31,7 +31,10 @@ public class Circle {
         this.centralPoint = centralPoint;
     }
 
-    public int getRatioDistance() {
+    public int getRatioDistance() throws FactoryException{
+        if (centralPoint < 0) {
+            throw new FactoryException("La distancia de radio no puede ser negativa");
+        }
         return ratioDistance;
     }
 
@@ -43,6 +46,4 @@ public class Circle {
     public String toString() {
         return "Circulo ->" + " Punto central: " + centralPoint + ", distancia de radio: " + ratioDistance;
     }
-    
-    
 }

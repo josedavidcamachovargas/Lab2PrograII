@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejercicio2.composite;
+package ejercicio2.builder;
 
 /**
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public class MuralComponent {
+public class CircleBuilder {
     
 }

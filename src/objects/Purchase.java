@@ -1,4 +1,4 @@
-package lab2_progra;
+package objects;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -7,6 +7,7 @@ package lab2_progra;
  */
 
 
+import StrategyPattern.ShippingTypeStrategy;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class Purchase implements Comparable<Purchase>{
     private Status status;
     private TreeMap<String, Product> productsList;
     private Client client;
-    
+    private ShippingTypeStrategy shippingType = null;
     
     // Constructors
 
@@ -62,6 +63,22 @@ public class Purchase implements Comparable<Purchase>{
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+    
+        public ShippingTypeStrategy getShippingType() {
+        return shippingType;
+    }
+
+    public void setShippingType(ShippingTypeStrategy shippingType) {
+        this.shippingType = shippingType;
     }
     
     
@@ -129,7 +146,10 @@ public class Purchase implements Comparable<Purchase>{
         status.setDate((GregorianCalendar)GregorianCalendar.getInstance());
         return status.updateStatus();
     }
- 
+
+    public double calculatePrice(Purchase purchase) {
+        return shippingType.calculatePrice(purchase);
+    }
     
     @Override
     public int compareTo(Purchase other) {

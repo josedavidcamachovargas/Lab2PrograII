@@ -5,6 +5,8 @@
  */
 package objects;
 
+import SingletonPattern.ProcessingPurchasesList;
+import SingletonPattern.DeliveredPurchasesList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

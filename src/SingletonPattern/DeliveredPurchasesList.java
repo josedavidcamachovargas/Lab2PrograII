@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objects;
+package SingletonPattern;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.TreeSet;
+import objects.Purchase;
 
 /**
  * 
@@ -40,4 +41,4 @@ public class DeliveredPurchasesList {
         Collections.sort(list);
         return list.toString();
     }
-}//Hola
+}

@@ -23,14 +23,12 @@ import objects.Test;
  */
 public class ProcessingPurchasesList {
     
-    // Attributes
-    
+    // Attributes 
     private TreeMap<Integer, Purchase> purchasesList;
     private static int consecutive;
     private static ProcessingPurchasesList instance = new ProcessingPurchasesList();
     
     // Constructors
-
     public ProcessingPurchasesList() {
         consecutive = 0;
         purchasesList = new TreeMap();
@@ -38,7 +36,6 @@ public class ProcessingPurchasesList {
     
     
     // Methods
-    
     public void addPurchase(Purchase purchase) {
         purchase.setConsecutive(consecutive + 1);
         consecutive++;

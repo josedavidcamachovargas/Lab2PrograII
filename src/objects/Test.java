@@ -9,6 +9,7 @@ import SingletonPattern.ProcessingPurchasesList;
 import SingletonPattern.DeliveredPurchasesList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sun.security.jca.GetInstance;
 
 
 /**
@@ -23,7 +24,7 @@ public class Test {
     
     public static void main(String[] args) {
         deliveredPurchasesList = new DeliveredPurchasesList();
-        processingPurchasesList = new ProcessingPurchasesList();
+        processingPurchasesList =  getInstance();
         Purchase purchase;
         for (int i = 0; i < 16; i++) {
             

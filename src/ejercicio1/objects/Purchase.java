@@ -1,4 +1,4 @@
-package objects;
+package ejercicio1.objects;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -7,7 +7,8 @@ package objects;
  */
 
 
-import StrategyPattern.ShippingTypeStrategy;
+import ejercicio1.decoratorpattern.Additional;
+import ejercicio1.strategypattern.ShippingTypeStrategy;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.TreeMap;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public class Purchase implements Comparable<Purchase>{
+public class Purchase implements Comparable<Purchase>, Additional{
     
     // Attributes
     
@@ -72,8 +73,8 @@ public class Purchase implements Comparable<Purchase>{
     public void setClient(Client client) {
         this.client = client;
     }
-    
-        public ShippingTypeStrategy getShippingType() {
+
+    public ShippingTypeStrategy getShippingType() {
         return shippingType;
     }
 
@@ -147,8 +148,9 @@ public class Purchase implements Comparable<Purchase>{
         return status.updateStatus();
     }
 
-    public double calculatePrice(Purchase purchase) {
-        return shippingType.calculatePrice(purchase);
+    @Override
+    public double calculatePrice() {
+        return shippingType.calculatePrice(this);
     }
     
     @Override

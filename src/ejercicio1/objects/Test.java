@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objects;
+package ejercicio1.objects;
 
-import SingletonPattern.ProcessingPurchasesList;
-import SingletonPattern.DeliveredPurchasesList;
+import ejercicio1.singletonpattern.ProcessingPurchasesList;
+import ejercicio1.singletonpattern.DeliveredPurchasesList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.security.jca.GetInstance;
 
 
 /**
@@ -24,7 +23,7 @@ public class Test {
     
     public static void main(String[] args) {
         deliveredPurchasesList = new DeliveredPurchasesList();
-        processingPurchasesList =  getInstance();
+        processingPurchasesList = new ProcessingPurchasesList();
         Purchase purchase;
         for (int i = 0; i < 16; i++) {
             

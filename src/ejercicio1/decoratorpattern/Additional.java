@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package StrategyPattern;
-
-import objects.Purchase;
+package ejercicio1.decoratorpattern;
 
 /**
  *
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public interface ShippingTypeStrategy {
-    public double calculatePrice(Purchase purchase);
+public interface Additional {
+    public double calculatePrice();
 }

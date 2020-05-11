@@ -19,19 +19,22 @@ import objects.Purchase;
 public class DeliveredPurchasesList {
     
     // Attributes
-    
     private TreeSet<Purchase> purchasesList;
-    
+    private static DeliveredPurchasesList instance = new DeliveredPurchasesList();
     
     // Constructors
-
     public DeliveredPurchasesList() {
         purchasesList = new TreeSet();
     }
-    
-    
+
+    public static DeliveredPurchasesList getInstance() {
+        if (instance == null) {
+            instance = new DeliveredPurchasesList();
+        }
+        return instance;
+    }
+
     // Methods
-    
     public void addPurchase(Purchase purchase) {
         purchasesList.add(purchase);
     }

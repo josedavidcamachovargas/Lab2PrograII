@@ -7,7 +7,6 @@ package SingletonPattern;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.TreeMap;
@@ -28,7 +27,7 @@ public class ProcessingPurchasesList {
     
     private TreeMap<Integer, Purchase> purchasesList;
     private static int consecutive;
-    
+    private static ProcessingPurchasesList instance = new ProcessingPurchasesList();
     
     // Constructors
 
@@ -71,5 +70,12 @@ public class ProcessingPurchasesList {
             txt += iterator.next().toString() + "\n";
         }        
         return txt;
+    }
+    
+    public static ProcessingPurchasesList getInstance() {
+        if (instance == null) {
+            instance = new ProcessingPurchasesList();
+        }
+        return instance;
     }
 }

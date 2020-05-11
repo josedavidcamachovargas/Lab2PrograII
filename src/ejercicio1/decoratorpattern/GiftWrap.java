@@ -3,22 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DecoratorPattern;
+package ejercicio1.decoratorpattern;
 
 /**
  *
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public abstract class AdditionalType implements Additional {
-    private final Additional additional;
+public class GiftWrap extends AdditionalType {
+    private final int PRICE = 5;
 
-    public AdditionalType(Additional additional) {
-        this.additional = additional;
+    public GiftWrap(Additional additional) {
+        super(additional);
     }
 
-    public Additional getAdditional() {
-        return additional;
+    @Override
+    public double calculatePrice() {
+        return getAdditional().calculatePrice() + PRICE;
     }
     
     

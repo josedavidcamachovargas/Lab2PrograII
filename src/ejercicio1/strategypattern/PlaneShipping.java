@@ -3,20 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objects;
+package ejercicio1.strategypattern;
 
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.Iterator;
+import ejercicio1.objects.Purchase;
 
 /**
  *
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public class StatusComparator implements Comparator<Purchase>{
+public class PlaneShipping implements ShippingTypeStrategy{
 
     @Override
-    public int compare(Purchase purchase1, Purchase purchase2) {
-        return purchase1.getStatus().getStatus().compareTo(purchase2.getStatus().getStatus());
+    public double calculatePrice(Purchase purchase) {
+        return purchase.totalWeight() * 30;
     }
     
 }

@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SingletonPattern;
+package ejercicio1.singletonpattern;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.TreeMap;
-import objects.Purchase;
-import objects.Status;
-import objects.StatusComparator;
-import objects.StatusEnum;
-import objects.Test;
+import ejercicio1.objects.Purchase;
+import ejercicio1.objects.Status;
+import ejercicio1.objects.StatusComparator;
+import ejercicio1.objects.StatusEnum;
+import ejercicio1.objects.Test;
 
 /**
  *

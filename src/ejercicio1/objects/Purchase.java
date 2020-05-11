@@ -1,4 +1,4 @@
-package objects;
+package ejercicio1.objects;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -7,8 +7,8 @@ package objects;
  */
 
 
-import DecoratorPattern.Additional;
-import StrategyPattern.ShippingTypeStrategy;
+import ejercicio1.decoratorpattern.Additional;
+import ejercicio1.strategypattern.ShippingTypeStrategy;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

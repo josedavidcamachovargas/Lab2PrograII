@@ -5,8 +5,6 @@
  */
 package ejercicio2.factory;
 
-import ejercicio1.singletonpattern.DeliveredPurchasesList;
-
 /**
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
@@ -32,7 +30,7 @@ public class Circle {
     }
 
     public int getRatioDistance() throws FactoryException{
-        if (centralPoint < 0) {
+        if (ratioDistance < 0) {
             throw new FactoryException("La distancia de radio no puede ser negativa");
         }
         return ratioDistance;

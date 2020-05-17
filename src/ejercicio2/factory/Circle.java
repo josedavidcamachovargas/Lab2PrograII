@@ -13,6 +13,10 @@ public class Circle extends Figure{
     private int centralPoint;
     private int ratioDistance;
 
+    public Circle() {
+        super();
+    }
+    
     public Circle(int centralPoint, int ratioDistance) {
         this.centralPoint = centralPoint;
         this.ratioDistance = ratioDistance;

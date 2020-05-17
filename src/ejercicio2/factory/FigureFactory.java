@@ -10,6 +10,7 @@ package ejercicio2.factory;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484  
  */
-public class FigureFactory {
+public interface FigureFactory {
     
+    public Figure createFigure(); 
 }

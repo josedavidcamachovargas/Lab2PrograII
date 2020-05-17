@@ -11,7 +11,7 @@ import java.awt.Point;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public class Figure {
+public abstract class Figure {
     public Point point;
 
     public Figure() {
@@ -20,8 +20,6 @@ public class Figure {
     public Figure(Point point) {
         this.point = point;
     }
-    
-    
 
     public Point getPoint() {
         return point;
@@ -35,4 +33,8 @@ public class Figure {
     public String toString() {
         return "Figure ->" + " point: " + point;
     }
+    
+    //This method works for the differences in the classes
+    public abstract boolean diference();
+    
 }

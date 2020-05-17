@@ -57,7 +57,7 @@ public class Rectangle extends Figure{
     public String toString() {
         return "Rectangle: " + "upperLeftPoint: " + upperLeftPoint + ", highDistance: " + height + ", widthDistance: " + width;
     }
-  
+    
     public boolean diferenceHeightCoordinates() {
         int difference = height - upperLeftPoint;
         if (difference > 0) {
@@ -66,8 +66,9 @@ public class Rectangle extends Figure{
             return false;
         }
     }
-
-    public boolean diferenceWidthCoordinates() {
+    
+    @Override
+    public boolean diference() {
         int difference = width - upperLeftPoint;
         if (difference > 0) {
             return true;

@@ -44,4 +44,14 @@ public class Circle extends Figure{
     public String toString() {
         return "Circulo ->" + " Punto central: " + centralPoint + ", distancia de radio: " + ratioDistance;
     }
+
+    @Override
+    public boolean diference() {
+        int difference = ratioDistance - centralPoint;
+        if (difference > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -31,5 +31,4 @@ public class MuralComponent {
             System.out.println(i.next().toString()); 
         }
     }
-   
 }

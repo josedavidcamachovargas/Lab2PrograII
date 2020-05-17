@@ -17,6 +17,12 @@ public class Figure {
     public Figure() {
     }
 
+    public Figure(Point point) {
+        this.point = point;
+    }
+    
+    
+
     public Point getPoint() {
         return point;
     }

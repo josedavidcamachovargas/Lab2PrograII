@@ -14,8 +14,8 @@ package ejercicio2.factory;
  */
 public class Rectangle {
     private int upperLeftPoint;//coordenadas del punto superior izquierdo
-    private int highDistance;//distancia de alto
-    private int widthDistance;//distancia de ancho
+    private int height;//distancia de alto
+    private int width;//distancia de ancho
 
     public Rectangle() {
     }
@@ -31,32 +31,50 @@ public class Rectangle {
         this.upperLeftPoint = upperLeftPoint;
     }
 
-    public int getHighDistance() throws FactoryException {
-        if (highDistance < 0) {
+    public int getHeight() throws FactoryException {
+        if (height < 0) {
             throw new FactoryException("La distancia de alto no puede ser negativo");
         }
-        return highDistance;
+        return height;
     }
 
-    public void setHighDistance(int highDistance) {
-        this.highDistance = highDistance;
+    public void setHighDistance(int height) {
+        this.height = height;
     }
 
     public int getWidthDistance() throws FactoryException {
-        if (widthDistance < 0) {
+        if (width < 0) {
             throw new FactoryException("El ancho no puede ser negativo");
         }
-        return widthDistance;
+        return width;
     }
 
-    public void setWidthDistance(int widthDistance) {
-        this.widthDistance = widthDistance;
+    public void setWidthDistance(int width) {
+        this.width = width;
     }
 
     @Override
     public String toString() {
-        return "Rectangle: " + "upperLeftPoint: " + upperLeftPoint + ", highDistance: " + highDistance + ", widthDistance: " + widthDistance;
+        return "Rectangle: " + "upperLeftPoint: " + upperLeftPoint + ", highDistance: " + height + ", widthDistance: " + width;
     }
     
+    public boolean diferenceHeightCoordinates(){ //No se si sea necesario poner las dos validaciones, 
+        if(height > upperLeftPoint){             //es basicamente para ver cual es mayor para quitarle a ese y sacar la diferencia
+            int difference = height - upperLeftPoint;
+            if(difference < 0){
+                return false;
+            }else{
+                return true;
+            }
+        }else if(height < upperLeftPoint){
+            int difference = upperLeftPoint - height;
+            if(difference > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }
     
 }

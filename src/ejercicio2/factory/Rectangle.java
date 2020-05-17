@@ -59,15 +59,25 @@ public class Rectangle {
     }
     //No se si sea necesario poner dos validaciones,
     //es basicamente para ver cual es mayor para quitarle a ese y sacar la diferencia
-    public boolean diferenceHeightCoordinates(){ 
-        if(height > upperLeftPoint){             
-            int difference = height - upperLeftPoint;
-            if(difference < 0){
-                return false;
-            }else{
-                return true;
+    public boolean diferenceHeightCoordinates() {
+        int difference = height - upperLeftPoint;
+        if (difference > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
+    public boolean diferenceWidthCoordinates() {
+        int difference = width - upperLeftPoint;
+        if (difference > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     
-    public boolean
     
 }

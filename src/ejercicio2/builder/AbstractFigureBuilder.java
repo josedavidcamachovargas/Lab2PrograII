@@ -9,6 +9,6 @@ package ejercicio2.builder;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public abstract class AbstractFigureBuilder {
+public interface AbstractFigureBuilder {
     
 }

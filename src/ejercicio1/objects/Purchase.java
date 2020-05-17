@@ -18,7 +18,11 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- *
+ * Esta clase se encarga de crear una compra con metodos como un toString 
+ * mnejorado, un  productListString(), totalWeight(), addProduct(), removeProduct(),
+ * updateStatus(), y por ultimo los metodos calculatePrice() y compareTo() que se 
+ * implementan de interfaces creadas anteriormente.
+ * 
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

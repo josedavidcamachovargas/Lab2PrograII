@@ -8,7 +8,9 @@ package ejercicio1.objects;
 import java.text.DecimalFormat;
 
 /**
- *
+ * Esta clase se encarga de crear un producto basico con un codigo, una cantidad 
+ * y un peso, tambien con sus metodos basicos y por ultimo un metodo que se 
+ * encarga de calcular el peso general.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

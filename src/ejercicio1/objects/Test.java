@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 
 /**
- *
+ * Clase prueba del ejercicio.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

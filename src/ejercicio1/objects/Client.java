@@ -6,7 +6,7 @@
 package ejercicio1.objects;
 
 /**
- *
+ * Esta clase se encarga de crear un cliente basico con sus respectivos metodos.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
@@ -37,6 +37,5 @@ public class Client {
     public String toString() {
         return "Cliente: " + "Cédula = " + id + ". Correo electrónico = " + email + ".";
     }
-
     
 }

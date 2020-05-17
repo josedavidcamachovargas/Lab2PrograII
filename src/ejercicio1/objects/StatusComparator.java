@@ -8,7 +8,8 @@ package ejercicio1.objects;
 import java.util.Comparator;
 
 /**
- *
+ * Esta clase se encarga implementando el comparator de hacer una comparacion 
+ * entre los estados de dos compras 
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

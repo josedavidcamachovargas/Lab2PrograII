@@ -6,7 +6,9 @@
 package ejercicio1.objects;
 
 /**
- *
+ * Esta clase enum se encarga de los estados de las compras para cuando se 
+ * utilicen dentro de las listas, tambien se utiliza una variable final description
+ * con su respectivo constructor y metodo get.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

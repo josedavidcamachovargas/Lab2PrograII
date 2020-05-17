@@ -9,7 +9,10 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 /**
- *
+ * Esta clase se esncarga de un status el cual utiliza como atributos la clase
+ * StatusEnum y el GregorianCalendar que sera utilizado para la fecha, aparte de 
+ * los metodos basicos set y get, un toString que utiliza el calendario y un metodo
+ * final que se encarga de actualizar el estado
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

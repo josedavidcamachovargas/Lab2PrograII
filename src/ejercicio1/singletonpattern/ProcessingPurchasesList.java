@@ -17,7 +17,11 @@ import ejercicio1.objects.StatusEnum;
 import ejercicio1.objects.Test;
 
 /**
- *
+ * Esta clase se encarga de crear una lista tambien  de tipo tree la cual contiene 
+ * compras, un consecutivo una instancia. al igual que la DeliveredPurchaseList, 
+ * esta contiene metodos como el de agregar, el de actualizar el estado y dos 
+ * ordenamientos, por estado y por el codigo.
+ * 
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

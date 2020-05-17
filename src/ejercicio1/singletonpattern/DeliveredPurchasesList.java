@@ -12,7 +12,9 @@ import ejercicio1.objects.Purchase;
 
 /**
  * 
- *
+ * Esta clase se encarga de crear una lista de tipo tree la cual contiene compras
+ * entregadas, ésta contiene metodos para agregar una compra, se crea una instancia 
+ * y tambien un ordenamiento por parte del estatus de la fecha.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

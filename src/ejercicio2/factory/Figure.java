@@ -5,10 +5,28 @@
  */
 package ejercicio2.factory;
 
+import java.awt.Point;
+
 /**
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public abstract class Figure {
-    
+public class Figure {
+    public Point point;
+
+    public Figure() {
+    }
+
+    public Point getPoint() {
+        return point;
+    }
+
+    public void setPoint(Point point) {
+        this.point = point;
+    }
+
+    @Override
+    public String toString() {
+        return "Figure ->" + " point: " + point;
+    }
 }

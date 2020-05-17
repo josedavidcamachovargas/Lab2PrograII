@@ -12,7 +12,7 @@ package ejercicio2.factory;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484 
  */
-public class Rectangle {
+public class Rectangle extends Figure{
     private int upperLeftPoint;//coordenadas del punto superior izquierdo
     private int height;//distancia de alto
     private int width;//distancia de ancho

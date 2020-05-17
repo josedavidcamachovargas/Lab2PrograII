@@ -6,9 +6,9 @@
 package ejercicio2.factory;
 
 /**
- * This class is incharge to creates a rectangle with their respective measures
- * and variables that are going to say their coordinates of the upper left point,
- * the high distance and the width distance.
+ * Esta clase se encarga de crear un Rectangulo basio con sus respectivos metodos
+ * set, get  y tambien dos metodos de diferencia entre el punto superior izquierdo
+ * y la altura, y el otro metodo lo mismo pero esta vez con el ancho.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484 
  */

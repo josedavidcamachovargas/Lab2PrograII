@@ -6,6 +6,10 @@
 package ejercicio2.factory;
 
 /**
+ * 
+ * Esta clase se encarga de crear un Circulo basio con sus respectivos metodos
+ * set, get  y tambien agregando una diferencia entre el punto central y la
+ * distacia del radio heredados de la clase abstracta figura.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

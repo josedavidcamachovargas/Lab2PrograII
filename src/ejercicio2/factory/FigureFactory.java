@@ -6,7 +6,7 @@
 package ejercicio2.factory;
 
 /**
- *
+ * Esta interfaz se encarga de crear una figura con el metodo createFigure()
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484  
  */

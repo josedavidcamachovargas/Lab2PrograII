@@ -8,6 +8,8 @@ package ejercicio2.factory;
 import java.awt.Point;
 
 /**
+ * Clase abstracta Figura la cual tiene un metodo llamado diferencia
+ * como tambien un punto como variable con sus metodos set y get.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

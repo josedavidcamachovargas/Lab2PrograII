@@ -6,6 +6,9 @@
 package ejercicio2.factory;
 
 /**
+ * Clase que define un método estándar para crear un objeto, en este caso un rectangulo,
+ * aparte de un constructor, pero la decisión de qué tipo de objeto crear se va a dejar
+ * a las subclases.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

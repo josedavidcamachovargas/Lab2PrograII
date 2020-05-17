@@ -57,24 +57,17 @@ public class Rectangle {
     public String toString() {
         return "Rectangle: " + "upperLeftPoint: " + upperLeftPoint + ", highDistance: " + height + ", widthDistance: " + width;
     }
-    
-    public boolean diferenceHeightCoordinates(){ //No se si sea necesario poner las dos validaciones, 
-        if(height > upperLeftPoint){             //es basicamente para ver cual es mayor para quitarle a ese y sacar la diferencia
+    //No se si sea necesario poner dos validaciones,
+    //es basicamente para ver cual es mayor para quitarle a ese y sacar la diferencia
+    public boolean diferenceHeightCoordinates(){ 
+        if(height > upperLeftPoint){             
             int difference = height - upperLeftPoint;
             if(difference < 0){
                 return false;
             }else{
                 return true;
-            }
-        }else if(height < upperLeftPoint){
-            int difference = upperLeftPoint - height;
-            if(difference > 0){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        return false;
     }
+    
+    public boolean
     
 }

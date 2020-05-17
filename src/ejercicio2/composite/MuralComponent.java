@@ -10,5 +10,5 @@ package ejercicio2.composite;
  * @author José David Camacho Vargas B91484
  */
 public class MuralComponent {
-    
+
 }

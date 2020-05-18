@@ -5,19 +5,29 @@
  */
 package ejercicio2.builder;
 
+import ejercicio2.factory.Circle;
 import ejercicio2.factory.Figure;
+import ejercicio2.factory.Rectangle;
 import java.awt.Point;
 
 /**
+ * Esta clase implementa de AbstractFigureBuilder la cual implementa todos
+ * sus metodos para asi crearlos de manera que se puedan utilizar creando una 
+ * nueva figura. Los metodos se modificaron llamando al respectivo set de los
+ * metodos base.
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
 public class RectangleBuilder implements AbstractFigureBuilder {
     private Figure figure;
-        
+    private Circle circle;
+    private Rectangle rectangle;
+    
     @Override
-    public void BuildFigure(){
+    public void buildFigure(){
         figure = new Figure();
+        circle = new Circle();
+        rectangle = new Rectangle();
     }
 
     @Override
@@ -27,16 +37,26 @@ public class RectangleBuilder implements AbstractFigureBuilder {
 
     @Override
     public void buildRatio(double ratio) {
-        figure.setRatioDistance((int) ratio);
+        circle.setRatioDistance((int) ratio);
     }
 
     @Override
     public void buildWidth(double width) {
-        figure.setWidth((int) width);
+        rectangle.setWidthDistance((int) width);
     }
 
     @Override
     public void buildHeight(double height) {
-        figure.setHeight((int) height);
+        rectangle.setHighDistance((int) height);
+    }
+
+    @Override
+    public void buildCentralPoint(double centralPoint) {
+        circle.setCentralPoint(centralPoint);
+    }
+
+    @Override
+    public void buildUpperLeftPoint(double upperLeftPoint) {
+        rectangle.setUpperLeftPoint(upperLeftPoint);
     }
 }

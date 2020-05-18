@@ -33,4 +33,5 @@ public class MixedFigure {
     public String toString() {
         return "List de figuras: " + figureList.toString();
     }
+    
 }

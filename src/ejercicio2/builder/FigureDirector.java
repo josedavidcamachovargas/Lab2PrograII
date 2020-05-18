@@ -9,22 +9,33 @@ import ejercicio2.factory.Figure;
 import java.awt.Point;
 
 /**
+ * Esta clase funciona como un directorio en la cual se crean los metodos 
+ * de creacion de un circulo y rectangulo en este caso de los cuales se 
+ * tiene como parametros primeramente una 
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
 public class FigureDirector {
-    public Figure createCircle(AbstractFigureBuilder afb, Point point, double ratio){
-        if(afb == null){
+
+    public Figure createCircle(AbstractFigureBuilder afb, Point point, double ratio, double centralPoint) {
+        if (afb == null) {
             afb = new CircleBuilder();
         }
+        afb.buildFigure();
+        afb.buildCentralPoint(centralPoint);
+        afb.buildPoint(point);
+        afb.buildRatio(ratio);
         return null;
     }
-    
-    public Figure createRectangle(AbstractFigureBuilder afb, Point point, double width, double height){
-        if(afb == null){
+
+    public Figure createRectangle(AbstractFigureBuilder afb, Point point, double width, double height) {
+        if (afb == null) {
             afb = new RectangleBuilder();
         }
-        
+        afb.buildFigure();
+        afb.buildPoint(point);
+        afb.buildWidth(width);
+        afb.buildHeight(height);
         return null;
     }
 }

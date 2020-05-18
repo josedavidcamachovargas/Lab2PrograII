@@ -22,6 +22,7 @@ public class MuralComponent implements Copyable {
 
     private ArrayList<Figure> figures;
     private int index;
+    
 
     public int getIndex() {
         return index;

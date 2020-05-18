@@ -13,7 +13,7 @@ import java.awt.Point;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public abstract class Figure {
+public class Figure {
     public Point point;
 
     public Figure() {
@@ -37,6 +37,8 @@ public abstract class Figure {
     }
     
     //This method works for the differences in the classes
-    public abstract boolean diference();
+    public boolean diference(){
+        return false;
+    }
     
 }

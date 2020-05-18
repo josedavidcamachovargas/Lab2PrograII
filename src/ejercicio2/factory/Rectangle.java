@@ -18,6 +18,7 @@ public class Rectangle extends Figure{
     private int width;//distancia de ancho
 
     public Rectangle() {
+      
     }
 
     public int getUpperLeftPoint() throws FactoryException {
@@ -57,7 +58,7 @@ public class Rectangle extends Figure{
     public String toString() {
         return "Rectangle: " + "upperLeftPoint: " + upperLeftPoint + ", highDistance: " + height + ", widthDistance: " + width;
     }
-    
+
     @Override
     public boolean diference() {
         int differenceHeight = height - upperLeftPoint;

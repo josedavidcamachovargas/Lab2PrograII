@@ -5,10 +5,26 @@
  */
 package ejercicio2.builder;
 
+import ejercicio2.factory.Figure;
+import java.awt.Point;
+
 /**
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
 public class FigureDirector {
+    public Figure createCircle(AbstractFigureBuilder afb, Point point, double ratio){
+        if(afb == null){
+            afb = new CircleBuilder();
+        }
+        return null;
+    }
     
+    public Figure createRectangle(AbstractFigureBuilder afb, Point point, double width, double height){
+        if(afb == null){
+            afb = new RectangleBuilder();
+        }
+        
+        return null;
+    }
 }

@@ -61,6 +61,10 @@ public class ProcessingPurchasesList {
     public void updateStatus(int consecutive) {
         Purchase purchase = purchasesList.get(consecutive);
         purchase.updateStatus();
+        ArrayList<Object> consecutiveStatus = new ArrayList<>(2);
+        consecutiveStatus.add(purchase.getConsecutive());
+        consecutiveStatus.add(purchase.getStatus());
+        purchase.notifyObservers(consecutiveStatus);
         purchasesList.replace(consecutive, purchase);
         if (purchasesList.get(consecutive).getStatus().getStatus() == StatusEnum.DELIVERED) {
             Test.deliveredPurchasesList.addPurchase(purchasesList.remove(consecutive));

@@ -12,6 +12,6 @@ package ejercicio2.prototype;
  */
 
 public interface Copyable {
-    public Object copy();
+    public Object copy(int index);
 }
 

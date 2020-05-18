@@ -11,6 +11,10 @@ import ejercicio2.factory.Rectangle;
 import java.awt.Point;
 
 /**
+ * Esta clase implementa de AbstractFigureBuilder la cual implementa todos
+ * sus metodos para asi crearlos de manera que se puedan utilizar creando una 
+ * nueva figura. Los metodos se modificaron llamando al respectivo set de los
+ * metodos base. 
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */

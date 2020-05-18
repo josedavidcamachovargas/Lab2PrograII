@@ -13,8 +13,9 @@ import java.awt.Point;
  */
 
 public interface AbstractFigureBuilder {
-    void BuildFigure();
+    void buildFigure();
     void buildPoint(Point p);
+    void buildCentralPoint(double centralPoint);
     void buildRatio(double ratio);
     void buildWidth(double width);
     void buildHeight(double height);

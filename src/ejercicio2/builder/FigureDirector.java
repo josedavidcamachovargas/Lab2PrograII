@@ -13,18 +13,25 @@ import java.awt.Point;
  * @author José David Camacho Vargas B91484
  */
 public class FigureDirector {
-    public Figure createCircle(AbstractFigureBuilder afb, Point point, double ratio){
-        if(afb == null){
+
+    public Figure createCircle(AbstractFigureBuilder afb, Point point, double ratio) {
+        if (afb == null) {
             afb = new CircleBuilder();
         }
+        afb.buildFigure();
+        afb.buildCentralPoint(ratio);
+        afb.buildPoint(point);
         return null;
     }
-    
-    public Figure createRectangle(AbstractFigureBuilder afb, Point point, double width, double height){
-        if(afb == null){
+
+    public Figure createRectangle(AbstractFigureBuilder afb, Point point, double width, double height) {
+        if (afb == null) {
             afb = new RectangleBuilder();
         }
-        
+        afb.buildFigure();
+        afb.buildPoint(point);
+        afb.buildWidth(width);
+        afb.buildHeight(height);
         return null;
     }
 }

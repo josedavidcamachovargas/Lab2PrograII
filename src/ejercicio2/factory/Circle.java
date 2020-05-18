@@ -14,11 +14,11 @@ package ejercicio2.factory;
  * @author José David Camacho Vargas B91484
  */
 public class Circle extends Figure{
-    private int centralPoint;
-    private int ratioDistance;
+    private double centralPoint;
+    private double  ratioDistance;
 
     public Circle() {
-  
+        super();
     }
     
     public Circle(int centralPoint, int ratioDistance) {
@@ -26,25 +26,25 @@ public class Circle extends Figure{
         this.ratioDistance = ratioDistance;
     }
 
-    public int getCentralPoint() throws FactoryException{
+    public double  getCentralPoint() throws FactoryException{
         if (centralPoint < 0) {
             throw new FactoryException("El punto central no puede ser negativo");
         }
         return centralPoint;
     }
 
-    public void setCentralPoint(int centralPoint) {
+    public void setCentralPoint(double  centralPoint) {
         this.centralPoint = centralPoint;
     }
 
-    public int getRatioDistance() throws FactoryException{
+    public double  getRatioDistance() throws FactoryException{
         if (ratioDistance < 0) {
             throw new FactoryException("La distancia de radio no puede ser negativa");
         }
         return ratioDistance;
     }
 
-    public void setRatioDistance(int ratioDistance) {
+    public void setRatioDistance(double  ratioDistance) {
         this.ratioDistance = ratioDistance;
     }
 
@@ -55,7 +55,7 @@ public class Circle extends Figure{
 
     @Override
     public boolean diference() {
-        int difference = ratioDistance - centralPoint;
+        double  difference = ratioDistance - centralPoint;
         if (difference > 0) {
             return true;
         } else {

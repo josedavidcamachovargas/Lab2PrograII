@@ -58,23 +58,14 @@ public class Rectangle extends Figure{
         return "Rectangle: " + "upperLeftPoint: " + upperLeftPoint + ", highDistance: " + height + ", widthDistance: " + width;
     }
     
-    public boolean diferenceHeightCoordinates() {
-        int difference = height - upperLeftPoint;
-        if (difference > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
     @Override
     public boolean diference() {
-        int difference = width - upperLeftPoint;
-        if (difference > 0) {
+        int differenceHeight = height - upperLeftPoint;
+        int differenceWidth = width - upperLeftPoint;
+        if (differenceWidth > 0 || differenceHeight > 0) {
             return true;
         } else {
             return false;
         }
     }
-
 }

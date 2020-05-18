@@ -9,6 +9,8 @@ import ejercicio2.factory.Figure;
 import ejercicio2.prototype.Copyable;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * ESta clase se encarga de crear un mural con un ArrayList de figuras, ésta
@@ -20,10 +22,16 @@ import java.util.Iterator;
  */
 public class MuralComponent implements Copyable {
 
-    private ArrayList<Figure> figures;
+    private ArrayList<MuralComponent> figures;
     private int index;
+
+    public MuralComponent() {
+        figures = new ArrayList<>();
+    } 
     
 
+    
+    
     public int getIndex() {
         return index;
     }
@@ -32,20 +40,17 @@ public class MuralComponent implements Copyable {
         this.index = index;
     }
 
-    public MuralComponent(ArrayList<Figure> figures) {
-        this.figures = figures;
-    }
 
-    public void addFigure(Figure f) {
+    public void addFigure(MuralComponent f) {
         figures.add(f);
     }
 
-    public void deleteFigure(Figure f) {
+    public void deleteFigure(MuralComponent f) {
         figures.remove(f);
     }
 
     public void showInformation() {
-        Iterator<Figure> i = figures.iterator();
+        Iterator<MuralComponent> i = figures.iterator();
         while (i.hasNext() != false) {
             System.out.println(i.next().toString());
         }
@@ -53,20 +58,14 @@ public class MuralComponent implements Copyable {
 
     @Override
     public Object copy(int index) {
-        Figure figure = new Figure();
-        figure = figures.get(index);
+        MuralComponent figure = new MuralComponent();
+        try {
+            figure = (MuralComponent)figures.get(index).clone();
+        } catch (CloneNotSupportedException ex) {
+            System.out.println(ex.getMessage());;
+        }
         return figure;
     }
+    
 
-    //Este metodo se encarga de verificar que el indice agregado tenga una figura
-    //y lo envia a una varaible global
-    private int index(int index) {
-        Iterator<Figure> i = figures.iterator();
-        while (i.hasNext() != false) {
-            if (figures.indexOf(i) == index) {
-                this.index = index;
-            }
-        }
-        return -1;
-    }
 }

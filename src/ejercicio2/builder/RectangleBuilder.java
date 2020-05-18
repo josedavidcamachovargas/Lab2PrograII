@@ -5,8 +5,10 @@
  */
 package ejercicio2.builder;
 
-import ejercicio2.factory.Circle;
+
+import ejercicio2.factory.FactoryException;
 import ejercicio2.factory.Figure;
+
 import ejercicio2.factory.Rectangle;
 import java.awt.Point;
 
@@ -19,44 +21,45 @@ import java.awt.Point;
  * @author José David Camacho Vargas B91484
  */
 public class RectangleBuilder implements AbstractFigureBuilder {
-    private Figure figure;
-    private Circle circle;
     private Rectangle rectangle;
     
     @Override
     public void buildFigure(){
-        figure = new Figure();
-        circle = new Circle();
         rectangle = new Rectangle();
     }
 
     @Override
     public void buildPoint(Point p) {
-        figure.setPoint(p);
+        try {
+            rectangle.setPoint(p);
+        } catch (FactoryException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
-    @Override
-    public void buildRatio(double ratio) {
-        circle.setRatioDistance((int) ratio);
-    }
 
-    @Override
+
+
     public void buildWidth(double width) {
         rectangle.setWidthDistance((int) width);
     }
 
-    @Override
+
     public void buildHeight(double height) {
-        rectangle.setHighDistance((int) height);
+        try {
+            rectangle.setHighDistance(height);
+        } catch (FactoryException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @Override
-    public void buildCentralPoint(double centralPoint) {
-        circle.setCentralPoint(centralPoint);
+    public Figure getFigure() {
+        return rectangle;
     }
+    
+    
 
-    @Override
-    public void buildUpperLeftPoint(double upperLeftPoint) {
-        rectangle.setUpperLeftPoint(upperLeftPoint);
-    }
 }
+
+

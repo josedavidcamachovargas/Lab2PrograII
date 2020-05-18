@@ -5,6 +5,7 @@
  */
 package ejercicio2.factory;
 
+import ejercicio2.composite.MuralComponent;
 import java.awt.Point;
 
 /**
@@ -13,7 +14,7 @@ import java.awt.Point;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public class Figure {
+public abstract class Figure extends MuralComponent implements Cloneable {
     public Point point;
 
     public Figure() {
@@ -27,18 +28,20 @@ public class Figure {
         return point;
     }
 
-    public void setPoint(Point point) {
+    public void setPoint(Point point) throws FactoryException{
         this.point = point;
     }
 
     @Override
     public String toString() {
-        return "Figure ->" + " point: " + point;
+        return "\nFigura ->" + " point: " + point;
+    }
+    
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
     
     //This method works for the differences in the classes
-    public boolean diference(){
-        return false;
-    }
+    public abstract boolean diference();
     
 }

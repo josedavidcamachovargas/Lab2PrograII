@@ -15,27 +15,42 @@ import java.awt.Point;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public class FigureDirector {
+public class FigureDirector implements AbstractFigureBuilder {
+    
 
-    public Figure createCircle(AbstractFigureBuilder afb, Point point, double ratio, double centralPoint) {
+    public static Figure createCircle(AbstractFigureBuilder afb, Point point, double ratio) {
         if (afb == null) {
             afb = new CircleBuilder();
         }
         afb.buildFigure();
-        afb.buildCentralPoint(centralPoint);
         afb.buildPoint(point);
-        afb.buildRatio(ratio);
-        return null;
+        ((CircleBuilder)afb).buildRatio(ratio);
+        return afb.getFigure();
     }
 
-    public Figure createRectangle(AbstractFigureBuilder afb, Point point, double width, double height) {
+    public static Figure createRectangle(AbstractFigureBuilder afb, Point point, double width, double height) {
         if (afb == null) {
             afb = new RectangleBuilder();
         }
         afb.buildFigure();
         afb.buildPoint(point);
-        afb.buildWidth(width);
-        afb.buildHeight(height);
-        return null;
+        ((RectangleBuilder)afb).buildWidth(width);
+        ((RectangleBuilder)afb).buildHeight(height);
+        return afb.getFigure();
+    }
+
+    @Override
+    public void buildFigure() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void buildPoint(Point p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Figure getFigure() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

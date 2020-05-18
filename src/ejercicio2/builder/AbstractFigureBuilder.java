@@ -5,6 +5,7 @@
  */
 package ejercicio2.builder;
 
+import ejercicio2.factory.Figure;
 import java.awt.Point;
 
 /**
@@ -17,9 +18,5 @@ import java.awt.Point;
 public interface AbstractFigureBuilder {
     void buildFigure();
     void buildPoint(Point p);
-    void buildCentralPoint(double centralPoint);
-    void buildRatio(double ratio);
-    void buildUpperLeftPoint(double upperLeftPoint);
-    void buildWidth(double width);
-    void buildHeight(double height);
+    Figure getFigure();
 }

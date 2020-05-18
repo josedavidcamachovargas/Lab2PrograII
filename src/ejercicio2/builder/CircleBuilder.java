@@ -50,4 +50,9 @@ public class CircleBuilder implements AbstractFigureBuilder{
     public void buildCentralPoint(double centralPoint) {
         circle.setCentralPoint(centralPoint);
     }
+    
+    @Override
+    public void buildUpperLeftPoint(double upperLeftPoint) {
+        rectangle.setUpperLeftPoint(upperLeftPoint);
+    }
 }

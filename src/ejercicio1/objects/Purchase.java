@@ -7,7 +7,10 @@ package ejercicio1.objects;
  */
 
 
+import ejercicio1.observerpattern.Client;
 import ejercicio1.decoratorpattern.Additional;
+import ejercicio1.observerpattern.Observer;
+import ejercicio1.observerpattern.ObserverManager;
 import ejercicio1.strategypattern.ShippingTypeStrategy;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -26,7 +29,7 @@ import java.util.TreeMap;
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
-public class Purchase implements Comparable<Purchase>, Additional{
+public class Purchase implements Comparable<Purchase>, Additional, ObserverManager{
     
     // Attributes
     
@@ -36,11 +39,13 @@ public class Purchase implements Comparable<Purchase>, Additional{
     private TreeMap<String, Product> productsList;
     private Client client;
     private ShippingTypeStrategy shippingType = null;
+    private ArrayList<Observer> receptorList;
     
     // Constructors
 
     public Purchase() {
         productsList = new TreeMap();
+        receptorList =  new ArrayList<>();
     }
     
     
@@ -160,6 +165,32 @@ public class Purchase implements Comparable<Purchase>, Additional{
     @Override
     public int compareTo(Purchase other) {
         return this.getStatus().getDate().compareTo(other.getStatus().getDate());
+    }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        receptorList.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        int i = receptorList.indexOf(observer);
+        if (i >= 0) {
+            receptorList.remove(i);
+        }
+    }
+
+    @Override
+    public void notifyObservers(Object updating) {
+        for (int i = 0; i < receptorList.size(); i++) {
+            Observer observer = (Observer) receptorList.get(i);
+            
+            if (observer instanceof Client) {
+                observer.update((Status)((ArrayList<Object>)updating).get(1));
+            } else {
+                observer.update(updating);
+            }
+        }
     }
 
 

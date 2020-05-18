@@ -5,9 +5,7 @@
  */
 package ejercicio2.composite;
 
-import ejercicio2.factory.Figure;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * @author Andrés Antonio Gonzalez Orozco B83477

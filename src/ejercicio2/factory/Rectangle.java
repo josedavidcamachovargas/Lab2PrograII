@@ -56,7 +56,7 @@ public class Rectangle extends Figure{
 
     @Override
     public String toString() {
-        return "Rectangle: " + "upperLeftPoint: " + upperLeftPoint + ", highDistance: " + height + ", widthDistance: " + width;
+        return "Rectangulo -> " + " punto superior izquierdo: " + upperLeftPoint + ", alto: " + height + ", ancho: " + width;
     }
 
     @Override

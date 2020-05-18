@@ -80,6 +80,7 @@ public class Purchase implements Comparable<Purchase>, Additional, ObserverManag
     }
 
     public void setClient(Client client) {
+        registerObserver(client);
         this.client = client;
     }
 
@@ -186,11 +187,31 @@ public class Purchase implements Comparable<Purchase>, Additional, ObserverManag
             Observer observer = (Observer) receptorList.get(i);
             
             if (observer instanceof Client) {
-                observer.update((Status)((ArrayList<Object>)updating).get(1));
+                
+                observer.update(copyUpdating1((ArrayList<Object>)updating));
             } else {
-                observer.update(updating);
+                
+//                observer.update((Status)((ArrayList<Object>)updating).get(1));
+                observer.update(copyUpdating2((ArrayList<Object>)updating));
             }
         }
+    }
+    
+    private Status copyUpdating1(ArrayList<Object> updating) {
+        Status newStatus = new Status(new GregorianCalendar());
+        newStatus.setDate(((Status)updating.get(1)).getDate());
+        newStatus.setStatus(((Status)updating.get(1)).getStatus());
+        return newStatus;
+    }
+    
+    private ArrayList<Object> copyUpdating2(ArrayList<Object> updating) {
+        Status newStatus = new Status(new GregorianCalendar());
+        newStatus.setDate(((Status)updating.get(1)).getDate());
+        newStatus.setStatus(((Status)updating.get(1)).getStatus());
+        ArrayList<Object> newUpdating = new ArrayList<>();
+        newUpdating.add(updating.get(0));
+        newUpdating.add(newStatus);
+        return newUpdating;
     }
 
 

@@ -55,7 +55,15 @@ public class ProcessingPurchasesList {
         consecutive++;
         purchase.setDate((GregorianCalendar)GregorianCalendar.getInstance());
         purchase.setStatus(new Status(purchase.getDate()));
+        ArrayList<Object> consecutiveStatus = new ArrayList<>(2);
+        consecutiveStatus.add(purchase.getConsecutive());
+        consecutiveStatus.add(purchase.getStatus());
+        purchase.notifyObservers(consecutiveStatus);
         purchasesList.put(consecutive, purchase);
+    }
+    
+    public Purchase getPurchase(int consecutive) {
+        return purchasesList.get(consecutive);
     }
     
     public void updateStatus(int consecutive) {
@@ -65,6 +73,7 @@ public class ProcessingPurchasesList {
         consecutiveStatus.add(purchase.getConsecutive());
         consecutiveStatus.add(purchase.getStatus());
         purchase.notifyObservers(consecutiveStatus);
+        
         purchasesList.replace(consecutive, purchase);
         if (purchasesList.get(consecutive).getStatus().getStatus() == StatusEnum.DELIVERED) {
             Test.deliveredPurchasesList.addPurchase(purchasesList.remove(consecutive));

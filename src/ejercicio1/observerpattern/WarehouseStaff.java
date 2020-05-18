@@ -21,7 +21,7 @@ public class WarehouseStaff implements Observer {
         consecutiveStatusList = new ArrayList<>();
     }
     
-    private String showConsecutiveStatusList() {
+    public String showConsecutiveStatusList() {
         Iterator<ArrayList<Object>> consecutiveStatusListIterator = consecutiveStatusList.iterator();
         
         String text = "";

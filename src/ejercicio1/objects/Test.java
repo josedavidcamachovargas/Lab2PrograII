@@ -5,8 +5,15 @@
  */
 package ejercicio1.objects;
 
+import ejercicio1.decoratorpattern.Additional;
+import ejercicio1.decoratorpattern.FragileWrap;
+import ejercicio1.decoratorpattern.GiftCard;
+import ejercicio1.decoratorpattern.GiftWrap;
+import ejercicio1.observerpattern.Client;
 import ejercicio1.singletonpattern.ProcessingPurchasesList;
 import ejercicio1.singletonpattern.DeliveredPurchasesList;
+import ejercicio1.strategypattern.PlaneShipping;
+import ejercicio1.strategypattern.ShipShipping;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,14 +29,15 @@ public class Test {
     public static ProcessingPurchasesList processingPurchasesList;
     
     public static void main(String[] args) {
-        deliveredPurchasesList = new DeliveredPurchasesList();
-        processingPurchasesList = new ProcessingPurchasesList();
+        deliveredPurchasesList = DeliveredPurchasesList.getInstance();
+        processingPurchasesList = ProcessingPurchasesList.getInstance();
         Purchase purchase;
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 5; i++) {
             
             // El waitTime() lo utilizaré para que las fechas de cambio de estados no me quedaran tan seguidas
             waitTime();
-            processingPurchasesList.addPurchase(generatePurchase());
+            processingPurchasesList.addPurchase((Purchase)generatePurchase());
+            
         }
         
         // Prueba ProcessingPurchasesList purchasesByStatus
@@ -44,26 +52,65 @@ public class Test {
         
         // Prueba ProcessingPurchasesList updateStatus
         
-        processingPurchasesList.updateStatus(14);
+        processingPurchasesList.updateStatus(2);
         waitTime();
+        
+        // Aquí podemos ver como se actualizan el cliente y el staff de la tienda
+        System.out.println("-------------------------------------------");
+        System.out.println("\n");
+        System.out.println("Actualizacion cliente, staff, observer");
+        System.out.println("\n");
+        System.out.println("-------------------------------------------");
         processingPurchasesList.updateStatus(3);
+        System.out.println(processingPurchasesList.getPurchase(3).getClient().showConsecutiveStatusList());
+        
         processingPurchasesList.updateStatus(3);
+        System.out.println("-------------------------------------------");
+        System.out.println("\n");
+        System.out.println("Actualizacion cliente, staff, observer");
+        System.out.println("\n");
+        System.out.println("-------------------------------------------");
+        System.out.println(processingPurchasesList.getPurchase(3).getClient().showConsecutiveStatusList());
+        
+        
+        System.out.println("-------------------------------------------");
+        System.out.println("\n");
+        System.out.println("Prueba decorator y strategy");
+        System.out.println("\n");
+        System.out.println("-------------------------------------------");
+        
+        Additional pruebaDecorator = processingPurchasesList.getPurchase(3);
+        ((Purchase)pruebaDecorator).setShippingType(new PlaneShipping());
+        System.out.println("Precio más envío por avión");
+        System.out.println(pruebaDecorator.calculatePrice());
+        ((Purchase)pruebaDecorator).setShippingType(new ShipShipping());
+        System.out.println("Precio más envío por barco");
+        System.out.println(pruebaDecorator.calculatePrice());
+        pruebaDecorator = new GiftCard("Regalía XD", 50, pruebaDecorator);
+        System.out.println("Precio más tarjeta de regalo");
+        System.out.println(pruebaDecorator.calculatePrice());
+        pruebaDecorator = new GiftWrap(pruebaDecorator);
+        System.out.println("Precio más envoltura de regalo");
+        System.out.println(pruebaDecorator.calculatePrice());
+        pruebaDecorator = new FragileWrap(pruebaDecorator);
+        System.out.println("Precio más envío por envoltura frágil");
+        System.out.println(pruebaDecorator.calculatePrice());
         waitTime();
-        processingPurchasesList.updateStatus(15);
-        processingPurchasesList.updateStatus(15);
+        processingPurchasesList.updateStatus(1);
+        processingPurchasesList.updateStatus(1);
         waitTime();
-        processingPurchasesList.updateStatus(11);
-        processingPurchasesList.updateStatus(11);
+        processingPurchasesList.updateStatus(4);
+        processingPurchasesList.updateStatus(4);
         
         System.out.println("Lista de compras actuales ordenada por estado: \n\n"
                          + processingPurchasesList.purchasesByStatus());
         
-        processingPurchasesList.updateStatus(3);
+        processingPurchasesList.updateStatus(1);
         waitTime();
-        processingPurchasesList.updateStatus(15);
+        processingPurchasesList.updateStatus(1);
         waitTime();
-        processingPurchasesList.updateStatus(11);
-        processingPurchasesList.updateStatus(11);
+        processingPurchasesList.updateStatus(4);
+        processingPurchasesList.updateStatus(4);
         waitTime();
         
         System.out.println("Lista de compras actuales ordenada por estado: \n\n"
@@ -77,7 +124,7 @@ public class Test {
         
         processingPurchasesList.updateStatus(3);
         waitTime();
-        processingPurchasesList.updateStatus(15);
+        processingPurchasesList.updateStatus(3);
         waitTime();
         
         System.out.println("Lista de compras entregadas ordenada por fecha de estado: \n\n"
@@ -85,16 +132,16 @@ public class Test {
         
         // Prueba del caso de que se agrega un producto repetido, para ver el aumento de la cantidad de producto
         System.out.println("Prueba del caso de que se agrega un producto repetido\n\n");
-        Purchase purchase1 = generatePurchase();
+        Additional purchase1 = generatePurchase();
         Product product1 = generateProduct();
         int quantity1 = product1.getQuantity();
         
         product1.setCode("Frijoles");
         Product product2;
         product2 = product1;
-        purchase1.addProduct(product1);
-        purchase1.addProduct(product2);
-        processingPurchasesList.addPurchase(purchase1);
+        ((Purchase)purchase1).addProduct(product1);
+        ((Purchase)purchase1).addProduct(product2);
+        processingPurchasesList.addPurchase(((Purchase)purchase1));
         
         // Aquí uso el purchasesByCode para revisar los datos previos del producto repetido, y ver
         // si aumentó la cantidad al agregar el repetido
@@ -108,7 +155,7 @@ public class Test {
         
         
         
-        purchase1.removeProduct("Frijoles");
+        ((Purchase)purchase1).removeProduct("Frijoles");
         
         // Se imprime de nuevo para ver que ya no contiene el producto de código Frijoles
         
@@ -119,18 +166,38 @@ public class Test {
         // Los demás métodos que no aparecen en el main, se encuentra dentro de los métodos imprimir
         // y los de creación de objetos random, como el generalWeight o el addPurchase,
         // por lo que se puede ver su implementación en la prueba de los métodos anteriores
+        
+        
+        
     }
     
-    private static Purchase generatePurchase() {
-        Purchase purchase = new Purchase();
-        for (int i = 0; i < 8; i++) {
-            purchase.addProduct(generateProduct());
+    private static Additional generatePurchase() {
+        Additional purchase = new Purchase();
+        
+        for (int i = 0; i < 4; i++) {
+            ((Purchase)purchase).addProduct(generateProduct());
+            
         }
+        ((Purchase)purchase).setClient(generateClient());
+        
         return purchase;
     }
     
     private static Product generateProduct() {
         return new Product(generateProductCode(), generateProductQuantity(), generateProductWeight());
+    }
+    
+    private static Client generateClient() {
+        return new Client(generateClientId(), generateClientEmail());
+    }
+    
+    private static String generateClientId() {
+        return randomInt(1, 7) + "-" + randomInt(0, 9) + "" + randomInt(0, 9)+ ""
+             + randomInt(0, 9) + "-" + randomInt(0, 9) + "" + randomInt(0, 9) + "" + randomInt(0, 9);
+    }
+    
+    private static String generateClientEmail() {
+        return randomInt(1, 7) + "-" + randomInt(0, 9) + "" + randomInt(0, 9)+ "@gmail.com";
     }
     
     private static String generateProductCode() {

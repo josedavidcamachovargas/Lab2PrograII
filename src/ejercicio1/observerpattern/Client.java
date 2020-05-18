@@ -23,6 +23,14 @@ public class Client implements Observer {
         purchaseStatusList = new ArrayList<>();
     }
 
+    public Client(String id, String email) {
+        this.id = id;
+        this.email = email;
+        purchaseStatusList = new ArrayList<>();
+    }
+    
+    
+
     public String getId() {
         return id;
     }
@@ -39,7 +47,7 @@ public class Client implements Observer {
         this.email = email;
     }
     
-    private String showConsecutiveStatusList() {
+    public String showConsecutiveStatusList() {
         Iterator<Status> purchaseStatusListIterator = purchaseStatusList.iterator();
         
         String text = "";
@@ -57,7 +65,8 @@ public class Client implements Observer {
 
     @Override
     public void update(Object updating) {
-        purchaseStatusList.add((Status)updating);
+        
+        purchaseStatusList.add(((Status)updating));
     }
     
 }

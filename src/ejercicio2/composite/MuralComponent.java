@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * ESta clase se encarga de crear un mural con un ArrayList de figuras, ésta implementa
- * de clonable con lo cual se crea el metodo copy que se encarga de hacer una 
- * copia de una figura a base de su indice.
+ * ESta clase se encarga de crear un mural con un ArrayList de figuras, ésta
+ * implementa de clonable con lo cual se crea el metodo copy que se encarga de
+ * hacer una copia de una figura a base de su indice.
+ *
  * @author Andrés Antonio Gonzalez Orozco B83477
  * @author José David Camacho Vargas B91484
  */
@@ -21,6 +22,14 @@ public class MuralComponent implements Copyable {
 
     private ArrayList<Figure> figures;
     private int index;
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
     public MuralComponent(ArrayList<Figure> figures) {
         this.figures = figures;
